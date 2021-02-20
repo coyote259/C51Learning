@@ -1,0 +1,105 @@
+C51 COMPILER V9.57.0.0   LESSON3_4                                                         02/20/2021 17:40:10 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE LESSON3_4
+OBJECT MODULE PLACED IN .\Objects\Lesson3_4.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Lesson3_4.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\Lesson3_4.lst) TABS(2) OBJECT(.\Objects\Lesson3_4.obj)
+
+line level    source
+
+   1          /*
+   2          Lesson3
+   3          数码管显示的原理
+   4          数码管的静态显示
+   5          中断原理
+   6          定时器应用
+   7          
+   8          */
+   9          /*申明*/
+  10          #include <reg52.h>
+  11          #define uint unsigned int
+  12          #define uchar unsigned char
+  13          void delay(uint z);
+  14          void init();
+  15          /*定义*/
+  16          sbit dula = P2^6;
+  17          sbit wela = P2^7;
+  18          uint num=0,tt=0;
+  19          sbit d1=P1^0; //第一个发光二极管
+  20          
+  21          /*使用code把定义的变量放在ROM中，而不是RAM中*/
+  22          uchar code table[]={
+  23              0x3f,0x06,0x5b,0x4f,
+  24              0x66,0x6d,0x7d,0x07,
+  25              0x7f,0x6f,0x77,0x7c,
+  26              0x39,0x5e,0x79,0x71
+  27          };
+  28          
+  29          void main()
+  30          {  
+  31   1          init();
+  32   1          wela = 1;
+  33   1          P0 = 0xc0;
+  34   1          wela = 0;
+  35   1          P0=table[num++];
+  36   1          while (1)
+  37   1          {
+  38   2              if (tt==4)
+  39   2              {
+  40   3                  tt=0;
+  41   3                  dula=1;
+  42   3                  P0=table[num++];
+  43   3                  num=num%16;            
+  44   3                  //dula=0;
+  45   3              } 
+  46   2          }
+  47   1          
+  48   1      }
+  49          
+  50          
+  51          /*延时函数，单位是ms*/
+  52          void delay(uint z)
+  53          {
+  54   1          uint x,y;
+C51 COMPILER V9.57.0.0   LESSON3_4                                                         02/20/2021 17:40:10 PAGE 2   
+
+  55   1          for ( x = z; x > 0; x--)
+  56   1          {
+  57   2              for ( y=110; y>0; y--);
+  58   2          }
+  59   1      }
+  60          
+  61          /*中断函数，不需要申明*/
+  62          void exter0() interrupt 1
+  63          {
+  64   1          TH0=(65536-50000)/256;
+  65   1          TL0=(65536-50000)%256;
+  66   1          tt++;
+  67   1      }
+  68          
+  69          
+  70          /*进行程序初始化*/
+  71          void init()
+  72          {
+  73   1          TMOD = 0x01; //设置定时器0为工作方式1
+  74   1          TH0=(65536-50000)/256;
+  75   1          TL0=(65536-50000)%256;
+  76   1          EA=1; //打开CPU总中断
+  77   1          ET0=1; //打开定时器0中断
+  78   1          TR0=1; //启动定时器0工作
+  79   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    145    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,93 @@
+C51 COMPILER V9.57.0.0   LESSON3_3                                                         02/20/2021 14:39:55 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE LESSON3_3
+OBJECT MODULE PLACED IN .\Objects\Lesson3_3.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Lesson3_3.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\Lesson3_3.lst) TABS(2) OBJECT(.\Objects\Lesson3_3.obj)
+
+line level    source
+
+   1          /*
+   2          Lesson3
+   3          数码管显示的原理
+   4          数码管的静态显示
+   5          中断原理
+   6          定时器应用
+   7          
+   8          */
+   9          /*申明*/
+  10          #include <reg52.h>
+  11          #define uint unsigned int
+  12          #define uchar unsigned char
+  13          void delay(uint z);
+  14          /*定义*/
+  15          sbit dula = P2^6;
+  16          sbit wela = P2^7;
+  17          uint num;
+  18          sbit d1=P1^0; //第一个发光二极管
+  19          
+  20          /*使用code把定义的变量放在ROM中，而不是RAM中*/
+  21          uchar code table[]={
+  22              0x3f,0x06,0x5b,0x4f,
+  23              0x66,0x6d,0x7d,0x07,
+  24              0x7f,0x6f,0x77,0x7c,
+  25              0x39,0x5e,0x79,0x71
+  26          };
+  27          
+  28          void main()
+  29          {  
+  30   1          EA=1; //打开CPU总中断
+  31   1          EX0=1; //开外部中断0
+  32   1          IT0=1; //设置外部中断0的出发方式为低电平触发
+  33   1          
+  34   1          wela = 1;
+  35   1          P0 = 0xc0;
+  36   1          wela = 0;
+  37   1          while (1)
+  38   1          {
+  39   2              for ( num = 0; num < 16; num++)
+  40   2              {
+  41   3                  d1=1;
+  42   3                  dula=1;
+  43   3                  P0=table[num];
+  44   3                  //dula=0;
+  45   3                  delay(1000);
+  46   3              }
+  47   2              
+  48   2          }
+  49   1          
+  50   1      }
+  51          
+  52          
+  53          /*延时函数，单位是ms*/
+  54          void delay(uint z)
+C51 COMPILER V9.57.0.0   LESSON3_3                                                         02/20/2021 14:39:55 PAGE 2   
+
+  55          {
+  56   1          uint x,y;
+  57   1          for ( x = z; x > 0; x--)
+  58   1          {
+  59   2              for ( y=110; y>0; y--);
+  60   2          }
+  61   1      }
+  62          
+  63          /*中断函数，不需要申明*/
+  64          void exter0() interrupt 0
+  65          {
+  66   1          d1=0;
+  67   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     97    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

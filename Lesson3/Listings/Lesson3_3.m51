@@ -1,0 +1,154 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    02/20/2021  17:40:10  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\Lesson3_4.obj TO .\Objects\Lesson3_3 PRINT (.\Listings\Lesson3_3.m51) RAMSIZE (256
+>> )
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\Lesson3_4.obj (LESSON3_4)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Lesson3_3 (LESSON3_4)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         ?DT?LESSON3_4
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     008CH     UNIT         ?C_C51STARTUP
+            CODE    009AH     0050H     UNIT         ?PR?MAIN?LESSON3_4
+            CODE    00EAH     001EH     UNIT         ?PR?_DELAY?LESSON3_4
+            CODE    0108H     0013H     UNIT         ?PR?EXTER0?LESSON3_4
+            CODE    011BH     0010H     UNIT         ?PR?INIT?LESSON3_4
+            CODE    012BH     0010H     UNIT         ?CO?LESSON3_4
+            CODE    013BH     0009H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Lesson3_3 (LESSON3_4)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?LESSON3_4
+  +--> ?C_INITSEG
+
+?PR?MAIN?LESSON3_4
+  +--> ?PR?INIT?LESSON3_4
+  +--> ?CO?LESSON3_4
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Lesson3_3 (LESSON3_4)
+
+  VALUE           TYPE          NAME
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/20/2021  17:40:10  PAGE 2
+
+
+  ----------------------------------
+
+  -------         MODULE        LESSON3_4
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  C:012BH         PUBLIC        table
+  D:00A8H         PUBLIC        IE
+  C:00EAH         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  C:009AH         PUBLIC        main
+  B:00A0H.6       PUBLIC        dula
+  B:00A0H.7       PUBLIC        wela
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:011BH         PUBLIC        init
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  D:0008H         PUBLIC        num
+  B:0088H.4       PUBLIC        TR0
+  C:0108H         PUBLIC        exter0
+  D:00C8H         PUBLIC        T2CON
+  D:000AH         PUBLIC        tt
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:009AH         LINE#         29
+  C:009AH         LINE#         30
+  C:009AH         LINE#         31
+  C:009DH         LINE#         32
+  C:009FH         LINE#         33
+  C:00A2H         LINE#         34
+  C:00A4H         LINE#         35
+  C:00BCH         LINE#         36
+  C:00BCH         LINE#         37
+  C:00BCH         LINE#         38
+  C:00C4H         LINE#         39
+  C:00C4H         LINE#         40
+  C:00C8H         LINE#         41
+  C:00CAH         LINE#         42
+  C:00E2H         LINE#         43
+  C:00E8H         LINE#         45
+  C:00E8H         LINE#         46
+  -------         ENDPROC       MAIN
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        z
+  -------         DO            
+  D:0006H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  -------         ENDDO         
+  C:00EAH         LINE#         52
+  C:00EAH         LINE#         53
+  C:00EAH         LINE#         55
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  02/20/2021  17:40:10  PAGE 3
+
+
+  C:00F3H         LINE#         56
+  C:00F3H         LINE#         57
+  C:0100H         LINE#         58
+  C:0107H         LINE#         59
+  -------         ENDPROC       _DELAY
+  -------         PROC          EXTER0
+  C:0108H         LINE#         62
+  C:010AH         LINE#         64
+  C:010DH         LINE#         65
+  C:0110H         LINE#         66
+  C:0118H         LINE#         67
+  -------         ENDPROC       EXTER0
+  -------         PROC          INIT
+  C:011BH         LINE#         71
+  C:011BH         LINE#         72
+  C:011BH         LINE#         73
+  C:011EH         LINE#         74
+  C:0121H         LINE#         75
+  C:0124H         LINE#         76
+  C:0126H         LINE#         77
+  C:0128H         LINE#         78
+  C:012AH         LINE#         79
+  -------         ENDPROC       INIT
+  -------         ENDMOD        LESSON3_4
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?LESSON3_4
+
+Program Size: data=13.0 xdata=0 code=316
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
