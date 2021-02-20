@@ -46,7 +46,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>Lesson4</OutputName>
+          <OutputName>Lesson5</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -231,7 +231,7 @@
               <RCB>
                 <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0xffff</Size>
+                <Size>0x10000</Size>
               </RCB>
               <RXB>
                 <Type>0</Type>
@@ -365,9 +365,9 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>Lesson4_3.c</FileName>
+              <FileName>Lesson5_1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Lesson4_3.c</FilePath>
+              <FilePath>.\Lesson5_1.c</FilePath>
             </File>
           </Files>
         </Group>

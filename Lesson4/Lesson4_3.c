@@ -35,11 +35,11 @@ void main()
             tt=0;
             temp=_crol_(temp,1);
             P1=temp;
-            wela=1;
             P0=table_we[num%6];
+            wela=1;       
             wela=0;
-            dula=1;
             P0=table[num%6+1];
+            dula=1;
             dula=0;
             num++;
         }
