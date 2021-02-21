@@ -1,0 +1,44 @@
+C51 COMPILER V9.57.0.0   LESSON6_1                                                         02/21/2021 18:45:35 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE LESSON6_1
+OBJECT MODULE PLACED IN .\Objects\Lesson6_1.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Lesson6_1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\Lesson6_1.lst) TABS(2) OBJECT(.\Objects\Lesson6_1.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <Utility.h>
+   3          
+   4          sbit csda=P3^2;
+   5          sbit wr=P3^6;
+   6          sbit wela=P2^7;
+   7          uchar count=0;
+   8          
+   9          void main()
+  10          {
+  11   1          wela=0x00;
+  12   1          csda=0;
+  13   1          wr=0;
+  14   1          while(1)
+  15   1          {
+  16   2              P0=(++count)%256;
+  17   2              delay(7);
+  18   2          }
+  19   1          
+  20   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     50    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
