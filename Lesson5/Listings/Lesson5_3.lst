@@ -1,0 +1,77 @@
+C51 COMPILER V9.57.0.0   LESSON5_3                                                         02/21/2021 15:34:40 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE LESSON5_3
+OBJECT MODULE PLACED IN .\Objects\Lesson5_3.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE Lesson5_3.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\Lesson5_3.lst) TABS(2) OBJECT(.\Objects\Lesson5_3.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <Utility.h>
+   3          
+   4          sbit dula=P2^2;
+   5          sbit wela=P2^7;
+   6          
+   7          void main()
+   8          {
+   9   1          uchar temp,num=0;
+  10   1          wela=1;
+  11   1          P0=0xc0;
+  12   1          wela=0;
+  13   1          while(1)
+  14   1          {
+  15   2              P3=0xfe;
+  16   2              temp=P3;
+  17   2              temp=temp&0xf0;
+  18   2              if (temp != 0xf0)
+  19   2              {
+  20   3                  // delay(10);
+  21   3                  // temp=P3;
+  22   3                  // temp=temp&0xf0;
+  23   3                  
+  24   3                  
+  25   3                      switch (temp)
+  26   3                      {
+  27   4                      case 0xe0:
+  28   4                          num=1;
+  29   4                          break;
+  30   4                      case 0xd0:
+  31   4                          num=2;
+  32   4                          break;
+  33   4                      case 0xb0:
+  34   4                          num=3;
+  35   4                          break;
+  36   4                      case 0x70:
+  37   4                          num=4;
+  38   4                          break;
+  39   4                      
+  40   4                      default:num++;
+  41   4                          break;
+  42   4                      }
+  43   3                  
+  44   3                  
+  45   3                  
+  46   3              }
+  47   2              dula=1;
+  48   2              P0=table[num];
+  49   2              dula=0;
+  50   2          }
+  51   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+C51 COMPILER V9.57.0.0   LESSON5_3                                                         02/21/2021 15:34:40 PAGE 2   
+
+   CODE SIZE        =     99    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

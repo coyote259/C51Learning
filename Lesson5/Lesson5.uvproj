@@ -365,9 +365,14 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>Lesson5_1.c</FileName>
+              <FileName>Utility.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Utility.h</FilePath>
+            </File>
+            <File>
+              <FileName>Lesson5_3.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Lesson5_1.c</FilePath>
+              <FilePath>.\Lesson5_3.c</FilePath>
             </File>
           </Files>
         </Group>

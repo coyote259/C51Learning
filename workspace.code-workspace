@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"reg52.h": "c",
+			"REG52.H": "cpp"
+		}
+	}
+}

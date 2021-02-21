@@ -1,0 +1,10 @@
+Build target 'Target 1'
+compiling Lesson5_3.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?LESSON5_3
+
+Program Size: data=9.0 xdata=0 code=130
+creating hex file from ".\Objects\Lesson5"...
+".\Objects\Lesson5" - 0 Error(s), 1 Warning(s).
+Build Time Elapsed:  00:00:00
